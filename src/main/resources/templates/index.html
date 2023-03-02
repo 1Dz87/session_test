@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<span th:text="${msg}"></span>
+<a th:href="@{/test/forward}">А что дальше?</a>
+</br>
+<form th:action="@{/test/postForm}" method="post">
+    <input type="text" name="name"/>
+    </br>
+    <input type="text" name="age"/>
+    </br>
+    <button type="submit">Отправить</button>
+</form>
+</body>
+</html>

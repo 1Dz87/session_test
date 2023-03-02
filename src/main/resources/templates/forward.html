@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script>
+    function getCar() {
+        axios.get('/test/car')
+        .then(function (response) {
+            let car = response.data;
+            console.log(car);
+            let element = document.getElementById("car");
+            let table = document.createElement("table");
+            table.style.cssText = "border: 1px solid;";
+            table.style.cssText += "border-collapse: collapse";
+            
+            let tr = document.createElement("tr");
+            tr.append(car["id"]);
+            table.append(tr);
+
+            tr = document.createElement("tr");
+            tr.append(car["name"]);
+            table.append(tr);
+
+            tr = document.createElement("tr");
+            tr.append(car["weight"]);
+            table.append(tr);
+
+            element.append(table);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+
+    }
+</script>
+<body>
+    <div id="car">
+    </div>
+    <button onclick="getCar()">Где моя машина?</button>
+</body>
+</html>
