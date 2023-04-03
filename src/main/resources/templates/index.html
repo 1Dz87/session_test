@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${title}"></title>
+    <script th:src="@{/js/index.js}" type="text/javascript"></script>
 </head>
 <body>
 <span th:text="${msg}"></span>
@@ -15,5 +16,8 @@
     </br>
     <button type="submit">Отправить</button>
 </form>
+</br>
+<div id="hello"></div>
+<button onclick="hello()">Say hello</button>
 </body>
 </html>
